@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NAI's transit</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <!-- HAMBURGER ICON -->
+        <div class="hamburger" id="hamburger">
+            <img src="image/download (1).png" alt="menu">
+        </div>
+        <div class="logo">
+            <h2>Nai's Transit</h2>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Features</a></li>
+            <li><a href="#">Routes</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="nav-buttons">
+            <a href="Login.html" class="login-btn">Login</a>
+            <a href="Register.html" class="register-btn">Register</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Smart Transport Fare Management Made Easy</h1>
+            <p>
+                Manage routes, transport fares, passangers and payment effectively in one centralized platform.
+            </p>
+            <div class="hero-buttons">
+                <a href="#" class="btn-primary">Get Started</a>
+                <a href="#" class="btn-secondary">Check Fare</a>
+            </div>
+        </div>
+
+        <!-- BUS IMAGE LINK NEEDED HERE -->
+        <div class="hero-image">
+            <img src="image/237591-removebg-preview.png" alt="bus"> <!-- IMG HERE -->
+        </div>
+    </section>
+
+
+    <!-- FEATURES SECTION  -->
+    <section class="features">
+        <h2>Why Choose Nai's Transit?</h2>
+
+        <div class="feature-container">
+            <div class="feature-card">
+                <h3>Route Management</h3>
+                <p>
+                    Create and manage transport route with ease.
+                </p>
+            </div>
+
+            <div class="feature-card">
+                <h3>Fare Calculator</h3>
+                <p>
+                    Automatically calculate transport fare.
+                </p>
+            </div>
+            <div class="feature-card">
+                <h3>Passenger Records</h3>
+                <p>
+                    Keep track of passenger information.
+                </p>
+            </div>
+            <div class="feature-card">
+                <h3>Analytics</h3>
+                <p>
+                    Generate reports and monitors revenue
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <h3>1</h3>
+                <p>Add Routes</p>
+            </div>
+            <div class="step">
+                <h3>2</h3>
+                <p>Set Fares</p>
+            </div>
+            <div class="step">
+                <h3>3</h3>
+                <p>Track Passengers</p>
+            </div>
+            <div class="step">
+                <h3>4</h3>
+                <p>Generate Reports</p>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- POPULAR ROUTES -->
+    <section class="routes">
+        <h2>Popular Routes</h2>
+        <div class="route-cards">
+            <div class="route-card">
+                <h3>Garage to Papa</h3>
+                <p>1,300</p>
+            </div>
+
+            <div class="route-card">
+                <h3>Garage to Sango</h3>
+                <p>2,500</p>
+            </div>
+
+            <div class="route-card">
+                <h3>Sabo to Owode</h3>
+                <p>1,200</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTICS -->
+    <section class="statistics">
+        <div class="stat-card">
+            <h2>30+</h2>
+            <p>Routes</p>
+        </div>
+        <div class="stat-card">
+            <h2>5000+</h2>
+            <p>Passengers</p>
+        </div>
+        <div class="stat-card">
+            <h2>10M+</h2>
+            <p>Revenue Managed</p>
+        </div>
+    </section>
+
+
+    <!-- CALL TO ACTION -->
+    <section class="cta">
+        <h2>Ready To Modernize Transport Management?</h2>
+        <a href="#" class="btn-primary"> Start Now </a>
+    </section>
+
+
+    <footer>
+        <div class="footer-content">
+            <h3>Nai's Transit</h3>
+            <p>
+                Smart Transport Fare Management System
+            </p>
+
+            <p>
+                &copy; 2026 All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+    <!-- hamburger display funtion -->
+    <script>
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.querySelector(".nav-links");
+    hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    })
+    document.addEventListener("click", (e) => {
+        if(
+            !hamburger.contains(e.target) &&
+            !navLinks.contains(e.target)
+        ) {
+            navLinks.classList.remove("active");
+        }
+    });
+    </script>
+</body>
+</html>
