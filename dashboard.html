@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard | Nai's Transit</title>
+    <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="dash.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -15,9 +16,9 @@
     <div class="sidebar">
         <h2>Nai's Transit</h2>
         <ul>
-            <li class="active">Dashboard</li>
-            <li>Routes</li>
-            <li>Fares</li>
+            <li class="active"><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="routes.html">Routes</a></li>
+            <li><a href="fares.html">Fares</a></li>
             <li>Vehicles</li>
             <li>Passengers</li>
             <li>Reports</li>
@@ -30,41 +31,97 @@
         <!-- TOP BAR  -->
         <div class="topbar">
             <h3>Dashboard</h3>
-            <div class="user">
-                Admin
+            <div class="top-actions">
+                <span class="notification">🔔</span>
+                <div class="user">
+                    Admin
+                </div>
             </div>
         </div>
         <!-- STAT CARDS -->
         <div class="cards">
             <div class="card">
                 <h4>Total Routes</h4>
-                <p>12</p>
+                <p class="counter" data-target="12">0</p>
             </div>
             <div class="card">
                 <h4>Total Vehicles</h4>
-                <p>8</p>
+                <p class="counter" data-target="8">0</p>
             </div>
             <div class="card">
                 <h4>Total Passengers</h4>
-                <p>245</p>
+                <p class="counter" data-target="245">0</p>
             </div>
             <div class="card">
                 <h4>Revenue</h4>
-                <p>120,000</p>
+                <p class="counter" data-target="120000">0</p>
             </div>
         </div>
         <!-- CONTENT SECTION  -->
         <div class="content">
             <div class="box">
                 <h3>Revenue Chart</h3>
-                <p>Chart will go here</p>
+                <p><canvas id="revenueChart"></canvas></p>
             </div>
             <div class="box">
                 <h3>Recent Activities</h3>
-                <p>No recent activity yet</p>
+                <ul class="activities">
+                    <li>New passenger registered</li>
+                    <li>Fare updated for Abeokuta - Ota Route</li>
+                    <li>Vehicle added successfully</li>
+                    <li>Monthly report generated</li>
+                </ul>
             </div>
         </div>
     </div>
+    <script>
+        const ctx = document.getElementById('revenueChart');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [
+                    'Jan',
+                    'Feb',
+                    'Mar',
+                    'Apr',
+                    'May',
+                    'Jun'
+                ],
+                datasets: [{
+                    label: 'Revenue (₦)',
+                    data: [
+                        30000,
+                        45000,
+                        40000,
+                        65000,
+                        85000,
+                        120000
+                    ],
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+    </script>
+    <script>
+        const counters = document.querySelectorAll('counter');
+        counter.forEach(counter =>{
+            const updateCounter = () => {
+                const target = +counter.getAttribute('data-target');
+                const current = +counter.innerText;
+                const increment = target / 100;
+                if(current < target){
+                    counter.innerText = Math.ceil(current + increment);
+                    setTimeout(updateCounter, 20);
+                } else {
+                    counter.innerText = target;
+                }
+            };
+            updateCounter();
+        });
+    </script>
 </body>
 
 </html>

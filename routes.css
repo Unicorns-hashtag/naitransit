@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-sarif;
+}
+body{
+    display: flex;
+    background-color: #f4f7fb;
+}
+/* SIDEBAR  */
+/* .sidebar{
+    width: 220px;
+    height: 100vh;
+    background-color: #0f3d2e;
+    color: white;
+    padding: 20px;
+    position: fixed;
+}
+.sidebar h2{
+    margin-bottom: 30px;
+}
+.sidebar ul{
+    list-style: none;
+}
+.sidebar ul li{
+    margin-bottom: 15px;
+}
+.sidebar ul li a{
+    color: white;
+    text-decoration: none;
+}
+.active{
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 6px;
+} */
+/* MAIN  */
+.main{
+    margin-left: 220px;
+    width: 100%;
+    padding: 20px;
+}
+.topbar{
+    margin-bottom: 20px;
+}
+/* FORM  */
+.form-box{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.form-box form{
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.form-box input{
+    padding: 12px;
+    flex: 1;
+    min-width: 200px;
+}
+.form-box button{
+    padding: 12px 20px;
+    background-color: #0f3d2e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* TABLE  */
+.table-box{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+}
+table th, table td{
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+th{
+    background-color: #0f3d2e;
+    color: white;
+}
+td button{
+    padding: 8px 12px;
+    margin-right: 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}

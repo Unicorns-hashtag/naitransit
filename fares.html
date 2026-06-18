@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fares | Nai's Transit</title>
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="stylesheet" href="routes.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+    <!-- SIDEBAR  -->
+    <div class="sidebar">
+        <h2>Nai's Transit</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="routes.html">Routes</a></li>
+            <li class="active"><a href="fares.html">Fares</a></li>
+            <li>Vehicles</li>
+            <li>Passengers</li>
+            <li>Reports</li>
+            <li>Settings</li>
+        </ul>
+        <a href="login.html" class="logout">Logout</a>
+    </div>
+    <!-- MAIN CONTENT  -->
+    <div class="main">
+        <div class="topbar">
+            <h2>Fare Management</h2>
+        </div>
+        <div class="form-box">
+            <h3>Add Fare</h3>
+            <form action="">
+                <select>
+                    <option>Select Route</option>
+                    <option>Abeokuta - Ota</option>
+                    <option>Ilaro - Abeokuta</option>
+                </select>
+                <select>
+                    <option>Vehicle Type</option>
+                    <option>Bus</option>
+                    <option>Mini Bus</option>
+                    <option>Luxury Bus</option>
+                </select>
+                <input type="number" placeholder="Fare Amount">
+                <button type="submit">Save Fare</button>
+            </form>
+        </div>
+        <div class="table-box">
+            <h3>Fare Records</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Route</th>
+                        <th>Vehicle</th>
+                        <th>Fare</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Ilaro - Abeokuta</td>
+                        <td>Bus</td>
+                        <td>₦2,500</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Button</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Abeokuta - Ota</td>
+                        <td>Mini Bus</td>
+                        <td>₦1,500</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
