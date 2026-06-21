@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vehicles | Nai's Transit</title>
+    <link rel="stylesheet" href="routes.css">
+    <link rel="stylesheet" href="sidebar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+
+</head>
+
+<body>
+    <!-- SIDEBAR  -->
+    <div class="sidebar">
+        <h2>Nai's Transit</h2>
+        <ul>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="routes.html">Routes</a></li>
+            <li><a href="fares.html">Fares</a></li>
+            <li class="active"><a href="vehicles.html">Vehicles</a></li>
+            <li><a href="passenger.html">Passengers</a></li>
+            <li><a href="report.html">Reports</a></li>
+            <li><a href="settings.html">Settings</a></li>
+        </ul>
+        <a href="login.html" class="logout">Logout</a>
+    </div>
+    <!-- MAIN CONTENT  -->
+    <div class="main">
+        <div class="topbar">
+            <h2>Vehicle Management</h2>
+        </div>
+        <div class="form-box">
+            <h3>Add Vehicle</h3>
+            <form>
+                <input type="text" placeholder="Vehicle Number">
+                <select>
+                    <option>Vehicle Type</option>
+                    <option>Luxery Bus</option>
+                    <option>Mini Bus</option>
+                    <option>Coaster Bus</option>
+                </select>
+                <input type="number" placeholder="Capacity">
+                <input type="text" placeholder="Driver Name">
+                <select>
+                    <option>Status</option>
+                    <option>Active</option>
+                    <option>Maintenance</option>
+                    <option>Inactive</option>
+                </select>
+                <button type="submit">Add Vehicle</button>
+            </form>
+        </div>
+        <div class="table-box">
+            <h3>Vehicle Records</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Vehicle No</th>
+                        <th>Type</th>
+                        <th>Capacity</th>
+                        <th>Driver</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>OGN-101</td>
+                        <td>Luxury Bus</td>
+                        <td>50</td>
+                        <td>Adewale Ogunleye</td>
+                        <td class="status-active">Active</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>OGN-202</td>
+                        <td>Mini Bus</td>
+                        <td>18</td>
+                        <td>Kehinde Akinola</td>
+                        <td class="status-active">Active</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>OGN-303</td>
+                        <td>Coaster Bus</td>
+                        <td>30</td>
+                        <td>Mariam Salako</td>
+                        <td class="status-inactive">Inactive</td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
