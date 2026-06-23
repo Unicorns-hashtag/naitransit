@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,11 @@
     <link rel="stylesheet" href="sidebar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"> -->
 </head>
+
 <body>
     <!-- SIDEBAR -->
     <div class="sidebar">
@@ -34,10 +37,10 @@
         <!-- ADD ROUTE FORM  -->
         <div class="form-box">
             <h3>Add New Route</h3>
-            <form action="">
-                <input type="text" placeholder="Route Name">
-                <input type="text" placeholder="Departure">
-                <input type="text" placeholder="Destination">
+            <form id="routeForm">
+                <input type="text" id="routeName" placeholder="Route Name">
+                <input type="text" id="departure" placeholder="Departure">
+                <input type="text" id="destination" placeholder="Destination">
                 <button type="submit">Add Route</button>
             </form>
         </div>
@@ -54,8 +57,8 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
+                <tbody id="routeTableBody">
+                    <!-- <tr>
                         <td>1</td>
                         <td>Ilaro Express</td>
                         <td>Ilaro</td>
@@ -74,10 +77,70 @@
                             <button>Edit</button>
                             <button>Delete</button>
                         </td>
-                    </tr>
+                    </tr> -->
                 </tbody>
             </table>
         </div>
     </div>
+    <script>
+        let routes = JSON.parse(localStorage.getItem("routes")) || [];
+        const form = document.getElementById("routeForm");
+        const tableBody = document.getElementById("routeTableBody");
+        function displayRoutes() {
+            tableBody.innerHTML = "";
+            routes.forEach((route, index) => {
+                tableBody.innerHTML += `
+                    <tr>
+                        <td>${index + 1}</td>
+                        <td>${route.name}</td>
+                        <td>${route.departure}</td>
+                        <td>${route.destination}</td>
+                        <td>
+                            <button onclick="deleteRoute(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const routeName = document.getElementById("routeName").value;
+            const departure = document.getElementById("departure").value;
+            const destination = document.getElementById("destination").value;
+            if (
+                routeName === "" ||
+                departure === "" ||
+                destination === ""
+            ) {
+                alert("Please fill all fields");
+                return;
+            }
+            routes.push({
+                name: routeName,
+                departure: departure,
+                destination: destination
+            });
+            localStorage.setItem(
+                "routes",
+                JSON.stringify(routes)
+            );
+            form.reset();
+            displayRoutes();
+
+        });
+        function deleteRoute(index) {
+            if (confirm("Delete this route")) {
+                routes.splice(index, 1);
+                localStorage.setItem(
+                    "routes",
+                    JSON.stringify(routes)
+                );
+                displayRoutes();
+            }
+        }
+        displayRoutes();
+    </script>
 </body>
+
 </html>

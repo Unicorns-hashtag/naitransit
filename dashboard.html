@@ -42,19 +42,19 @@
         <div class="cards">
             <div class="card">
                 <h4>Total Routes</h4>
-                <p class="counter" data-target="12">0</p>
+                <p class="counter" id="routeCount">0</p>
             </div>
             <div class="card">
                 <h4>Total Vehicles</h4>
-                <p class="counter" data-target="8">0</p>
+                <p class="counter" id="vehicleCount">0</p>
             </div>
             <div class="card">
                 <h4>Total Passengers</h4>
-                <p class="counter" data-target="245">0</p>
+                <p class="counter" id="passengerCount">0</p>
             </div>
             <div class="card">
                 <h4>Revenue</h4>
-                <p class="counter" data-target="120000">0</p>
+                <p class="counter" id="fareCount">0</p>
             </div>
         </div>
         <!-- CONTENT SECTION  -->
@@ -121,6 +121,16 @@
             };
             updateCounter();
         });
+    </script>
+    <script>
+        const routes = JSON.parse(localStorage.getItem("routes")) || [];
+        const vehicles = JSON.parse(localStorage.getItem("vehicles")) || [];
+        const passengers = JSON.parse(localStorage.getItem("passengers")) || [];
+        const fares = JSON.parse(localStorage.getItem("fares")) || [];
+        document.getElementById("routeCount").textContent =routes.length;
+        document.getElementById("vehicleCount").textContent =vehicles.length;
+        document.getElementById("passengerCount").textContent =passengers.length;
+        document.getElementById("fareCount").textContent =fares.length;
     </script>
 </body>
 
