@@ -170,3 +170,64 @@ td button{
     border-radius: 5px;
     cursor: pointer;
 }
+.overlay{
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 900;
+}
+
+.overlay.show{
+    opacity: 1;
+    visibility: visible;
+}
+
+/* TABLETS */
+@media screen and (max-width: 900px) {
+    .main{
+        margin-left: 220px;
+        padding: 15px;
+    }
+    .form-box form{
+        flex-direction: column;
+    }
+    .form-box input, .form-box button{
+        width: 100%;
+    }
+}
+
+/* PHONES */
+@media screen and (max-width: 768px) {
+    body{
+        display: block;
+    }
+    .sidebar{
+        position: static !important;
+        width: 100% !important;
+        height: auto !important;
+        padding: 15px;
+        /* position: relative;   } */
+    }
+    .main{
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 15px;
+    }
+    .form-box form{
+        flex-direction: column;
+    }
+    .form-box input, .form-box button{
+        width: 100%;
+        min-width: 100%;
+    }
+    .table-box{
+        overflow-x: auto;
+    }
+    table{
+        min-width: 700px;
+    }
+}

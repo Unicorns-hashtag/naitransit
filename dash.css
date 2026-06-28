@@ -7,6 +7,11 @@
 body{
     display: flex;
     background-color: #f4f7fb;
+    overflow-x: hidden;
+}
+html,
+body{
+    min-height: 100%;
 }
 
 
@@ -87,7 +92,7 @@ body{
 
 /* RESPONSIVENESS  */
 @media (max-width: 900px) {
-    .sidebar{
+    /* .sidebar{
         width: 70px;
         padding: 10px;
     }
@@ -104,10 +109,10 @@ body{
     }
     .logout{
         font-size: 0;
-    }
-    .main{
+    } */
+    /* .main{
         margin-left: 70px;
-    }
+    } */
     .cards{
         grid-template-columns: repeat(2, 1fr);
     }
@@ -121,4 +126,20 @@ body{
     .card:hover{
         transform: translateY(-5px);
     }
+}
+@media screen and (max-width: 768px){
+    .main{
+        margin-left: 0 !important;
+        width: 100% !important;
+        padding: 15px;
+    }
+
+    .cards{
+        grid-template-columns: 1fr;
+    }
+
+    .content{
+        grid-template-columns: 1fr;
+    }
+
 }

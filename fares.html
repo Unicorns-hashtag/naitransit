@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,15 @@
     <link rel="stylesheet" href="routes.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"> -->
 </head>
+
 <body>
     <!-- SIDEBAR  -->
+    <button id="menuBtn">≡</button>
+    <div class="overlay"></div>
     <div class="sidebar">
         <h2>Nai's Transit</h2>
         <ul>
@@ -90,9 +95,9 @@
         let fares = JSON.parse(localStorage.getItem("fares")) || [];
         const fareForm = document.getElementById("fareForm");
         const fareTableBody = document.getElementById("fareTableBody");
-        function displayFares(){
+        function displayFares() {
             fareTableBody.innerHTML = "";
-            fares.forEach((fare,index)=>{
+            fares.forEach((fare, index) => {
                 fareTableBody.innerHTML += `
                     <tr>
                         <td>${index + 1}</td>
@@ -106,16 +111,16 @@
                 `;
             });
         }
-        fareForm.addEventListener("submit", function(e){
+        fareForm.addEventListener("submit", function (e) {
             e.preventDefault();
             const route = document.getElementById("routeName").value;
             const vehicle = document.getElementById("vehicleType").value;
             const amount = document.getElementById("fareAmount").value;
-            if(
+            if (
                 route === "Select Route" ||
                 vehicle === "Vehicle Type" ||
                 amount === ""
-            ){
+            ) {
                 alert("Fill all fields");
                 return;
             }
@@ -131,8 +136,8 @@
             fareForm.reset();
             displayFares();
         });
-        function deleteFare(index){
-            fares.splice(index,1);
+        function deleteFare(index) {
+            fares.splice(index, 1);
             localStorage.setItem(
                 "fares",
                 JSON.stringify(fares)
@@ -141,5 +146,44 @@
         }
         displayFares();
     </script>
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.querySelector(".sidebar");
+        const overlay = document.querySelector(".overlay");
+
+        menuBtn.addEventListener("click", () => {
+
+            sidebar.classList.toggle("show");
+            overlay.classList.toggle("show");
+
+            if (sidebar.classList.contains("show")) {
+                menuBtn.style.opacity = "0";
+            } else {
+                menuBtn.style.opacity = "1";
+            }
+
+        });
+
+        overlay.addEventListener("click", () => {
+
+            sidebar.classList.remove("show");
+            overlay.classList.remove("show");
+            menuBtn.style.opacity = "1";
+
+        });
+
+        document.querySelectorAll(".sidebar a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                sidebar.classList.remove("show");
+                overlay.classList.remove("show");
+                menuBtn.style.opacity = "1";
+
+            });
+
+        });
+    </script>
 </body>
+
 </html>

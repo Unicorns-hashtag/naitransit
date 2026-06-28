@@ -7,12 +7,15 @@
     <title>Dashboard | Nai's Transit</title>
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="dash.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
     <!-- SIDEBAR  -->
+    <button id="menuBtn">≡</button>
+    <div id="overlay"></div>
     <div class="sidebar">
         <h2>Nai's Transit</h2>
         <ul>
@@ -65,7 +68,7 @@
             </div>
             <div class="box">
                 <h3>Recent Activities</h3>
-                <ul class="activities">
+                <ul class="activities" id="activityList">
                     <li>New passenger registered</li>
                     <li>Fare updated for Abeokuta - Ota Route</li>
                     <li>Vehicle added successfully</li>
@@ -106,13 +109,13 @@
         });
     </script>
     <script>
-        const counters = document.querySelectorAll('counter');
-        counter.forEach(counter =>{
+        const counter = document.querySelectorAll('.counter');
+        counter.forEach(counter => {
             const updateCounter = () => {
                 const target = +counter.getAttribute('data-target');
                 const current = +counter.innerText;
                 const increment = target / 100;
-                if(current < target){
+                if (current < target) {
                     counter.innerText = Math.ceil(current + increment);
                     setTimeout(updateCounter, 20);
                 } else {
@@ -127,10 +130,39 @@
         const vehicles = JSON.parse(localStorage.getItem("vehicles")) || [];
         const passengers = JSON.parse(localStorage.getItem("passengers")) || [];
         const fares = JSON.parse(localStorage.getItem("fares")) || [];
-        document.getElementById("routeCount").textContent =routes.length;
-        document.getElementById("vehicleCount").textContent =vehicles.length;
-        document.getElementById("passengerCount").textContent =passengers.length;
-        document.getElementById("fareCount").textContent =fares.length;
+        document.getElementById("routeCount").textContent = routes.length;
+        document.getElementById("vehicleCount").textContent = vehicles.length;
+        document.getElementById("passengerCount").textContent = passengers.length;
+        document.getElementById("fareCount").textContent = fares.length;
+    </script>
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.querySelector(".sidebar");
+        const overlay = document.getElementById("overlay");
+        menuBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("show");
+            overlay.classList.toggle("active");
+            if (sidebar.classList.contains("show")) {
+                menuBtn.innerHTML = "✕";
+            }
+            else {
+                menuBtn.innerHTML = "☰";
+            }
+        });
+
+        overlay.addEventListener("click", () => {
+            sidebar.classList.remove("show");
+            overlay.classList.remove("active");
+            menuBtn.innerHTML = "☰";
+        });
+
+        document.querySelectorAll(".sidebar a").forEach(link => {
+            link.addEventListener("click", () => {
+                sidebar.classList.remove("show");
+                overlay.classList.remove("active");
+                menuBtn.innerHTML = "☰";
+            });
+        });
     </script>
 </body>
 
