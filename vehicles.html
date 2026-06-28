@@ -116,9 +116,9 @@
         let vehicles = JSON.parse(localStorage.getItem("vehicles")) || [];
         const form = document.getElementById("vehicleForm");
         const tableBody = document.getElementById("vehicleTableBody");
-        function displayVehicles(){
-            tableBody.innerHTML ="";
-            vehicles.forEach((vehicle,index)=>{
+        function displayVehicles() {
+            tableBody.innerHTML = "";
+            vehicles.forEach((vehicle, index) => {
                 tableBody.innerHTML += `
                     <tr>
                         <td>${index + 1}</td>    
@@ -134,7 +134,7 @@
                 `;
             });
         }
-        form.addEventListener("submit", function(e){
+        form.addEventListener("submit", function (e) {
             e.preventDefault();
             const vehicleNumber = document.getElementById("vehicleNumber").value;
             const vehicleType = document.getElementById("vehicleType").value;
@@ -142,13 +142,13 @@
             const driverName = document.getElementById("driverName").value;
             const status = document.getElementById("status").value;
 
-            if(
+            if (
                 vehicleNumber === "" ||
                 vehicleType === "" ||
                 capacity === "" ||
                 driverName === "" ||
-                status === "" 
-            ){
+                status === ""
+            ) {
                 alert("Please fill all fields")
                 return;
             }
@@ -166,9 +166,9 @@
             form.reset();
             displayVehicles();
         });
-        function deleteVehicle(index){
-            if(confirm("Delete this vehicle?")){
-                vehicles.splice(index,1);
+        function deleteVehicle(index) {
+            if (confirm("Delete this vehicle?")) {
+                vehicles.splice(index, 1);
                 localStorage.setItem(
                     "vehicles",
                     JSON.stringify(vehicles)
@@ -177,6 +177,44 @@
             }
         }
         displayVehicles();
+    </script>
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const sidebar = document.querySelector(".sidebar");
+        const overlay = document.querySelector(".overlay");
+
+        menuBtn.addEventListener("click", () => {
+
+            sidebar.classList.toggle("show");
+            overlay.classList.toggle("show");
+
+            if (sidebar.classList.contains("show")) {
+                menuBtn.style.opacity = "0";
+            } else {
+                menuBtn.style.opacity = "1";
+            }
+
+        });
+
+        overlay.addEventListener("click", () => {
+
+            sidebar.classList.remove("show");
+            overlay.classList.remove("show");
+            menuBtn.style.opacity = "1";
+
+        });
+
+        document.querySelectorAll(".sidebar a").forEach(link => {
+
+            link.addEventListener("click", () => {
+
+                sidebar.classList.remove("show");
+                overlay.classList.remove("show");
+                menuBtn.style.opacity = "1";
+
+            });
+
+        });
     </script>
 </body>
 

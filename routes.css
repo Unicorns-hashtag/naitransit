@@ -205,17 +205,11 @@ td button{
     body{
         display: block;
     }
-    .sidebar{
-        position: static !important;
-        width: 100% !important;
-        height: auto !important;
-        padding: 15px;
-        /* position: relative;   } */
-    }
     .main{
         margin-left: 0 !important;
         width: 100% !important;
         padding: 15px;
+        margin-top: 50px;
     }
     .form-box form{
         flex-direction: column;
