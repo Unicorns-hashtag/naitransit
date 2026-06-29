@@ -37,7 +37,7 @@
         </div>
         <div class="form-box">
             <h3>Administrator Profile</h3>
-            <form>
+            <form id="profileForm">
                 <input type="text" value="Admin User" placeholder="Full Name">
                 <input type="email" value="stephennaomi254@gmail.com" placeholder="Email Address">
                 <input type="text" value="Nai's Transit" placeholder="System Name">
@@ -46,10 +46,10 @@
         </div>
         <div class="form-box">
             <h3>Change Password</h3>
-            <form>
-                <input type="password" placeholder="Current Password">
-                <input type="password" placeholder="New Password">
-                <input type="password" placeholder="Confirm New Password">
+            <form id="passwordForm">
+                <input type="password" id="currentPassword" placeholder="Current Password">
+                <input type="password" id="newPassword" placeholder="New Password">
+                <input type="password" id="confirmPassword" placeholder="Confirm New Password">
                 <button type="submit">Change Password</button>
             </form>
         </div>
@@ -99,6 +99,50 @@
             });
 
         });
+    </script>
+    <script>
+
+        const passwordForm =
+            document.getElementById("passwordForm");
+
+        passwordForm.addEventListener("submit", function (e) {
+
+            e.preventDefault();
+
+            const currentPassword =
+                document.getElementById("currentPassword").value;
+
+            const newPassword =
+                document.getElementById("newPassword").value;
+
+            const confirmPassword =
+                document.getElementById("confirmPassword").value;
+
+            const user =
+                JSON.parse(localStorage.getItem("user"));
+
+            if (currentPassword !== user.password) {
+                alert("Current password is incorrect");
+                return;
+            }
+
+            if (newPassword !== confirmPassword) {
+                alert("New passwords do not match");
+                return;
+            }
+
+            user.password = newPassword;
+
+            localStorage.setItem(
+                "user",
+                JSON.stringify(user)
+            );
+
+            alert("Password Changed Successfully");
+
+            passwordForm.reset();
+
+        }); 
     </script>
 </body>
 
