@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
 </head>
 
 <body>
@@ -22,11 +23,11 @@
             <h2>Nai's Transit</h2>
         </div>
         <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Features</a></li>
-            <li><a href="#">Routes</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#routes">Routes</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
 
         <div class="nav-buttons">
@@ -36,7 +37,7 @@
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="hero">
+    <section id="home" class="hero">
         <div class="hero-text">
             <h1>Smart Transport Fare Management Made Easy</h1>
             <p>
@@ -44,7 +45,7 @@
             </p>
             <div class="hero-buttons">
                 <a href="register.html" class="btn-primary">Get Started</a>
-                <a href="#" class="btn-secondary">Check Fare</a>
+                <a href="checkboard.html" class="btn-secondary">Check Fare</a>
             </div>
         </div>
 
@@ -56,7 +57,7 @@
 
 
     <!-- FEATURES SECTION  -->
-    <section class="features">
+    <section id="features" class="features">
         <h2>Why Choose Nai's Transit?</h2>
 
         <div class="feature-container">
@@ -113,7 +114,7 @@
 
 
     <!-- POPULAR ROUTES -->
-    <section class="routes">
+    <section id="routes" class="routes">
         <h2>Popular Routes</h2>
         <div class="route-cards">
             <div class="route-card">
@@ -151,13 +152,21 @@
 
 
     <!-- CALL TO ACTION -->
+    <section id="about" class="about">
+        <h2>About Nai's Transit</h2>
+        <p>
+            Nai's Transit is a smart transport fare management system designed
+            to help transport operators manage routes, vehicles, fares,
+            passengers and reports efficiently.
+        </p>
+    </section>
     <section class="cta">
         <h2>Ready To Modernize Transport Management?</h2>
         <a href="register.html" class="btn-primary"> Start Now </a>
     </section>
 
 
-    <footer>
+    <footer id="contact">
         <div class="footer-content">
             <h3>Nai's Transit</h3>
             <p>
@@ -171,19 +180,20 @@
     </footer>
     <!-- hamburger display funtion -->
     <script>
-    const hamburger = document.getElementById("hamburger");
-    const navLinks = document.querySelector(".nav-links");
-    hamburger.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    })
-    document.addEventListener("click", (e) => {
-        if(
-            !hamburger.contains(e.target) &&
-            !navLinks.contains(e.target)
-        ) {
-            navLinks.classList.remove("active");
-        }
-    });
+        const hamburger = document.getElementById("hamburger");
+        const navLinks = document.querySelector(".nav-links");
+        hamburger.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        })
+        document.addEventListener("click", (e) => {
+            if (
+                !hamburger.contains(e.target) &&
+                !navLinks.contains(e.target)
+            ) {
+                navLinks.classList.remove("active");
+            }
+        });
     </script>
 </body>
+
 </html>
